@@ -109,31 +109,6 @@ class Window(QtGui.QMainWindow):
         self.logTextBox.append(key)
         self.logTextBox.append(str(value))
         self.logTextBox.append('\n')
-
-
-
-
-    # first_name = self.first_name_box.text()
-    # last_name = self.last_name_box.text()
-    # phone_number = self.phone_number_box.text()
-    # if self.horizontal_selection == 'New contact':
-    #   self.contact_book.new_contact(first_name, last_name, phone_number)
-    #   self.logTextBox.append("\nSuccessfully added contact: \n" + first_name + ' '+ last_name + ' ' + phone_number)
-    # elif self.horizontal_selection == 'Update contact':
-    #   self.contact_book.update_contact(first_n=first_name, last_n=last_name, phone=phone_number)
-    #   self.logTextBox.append("\nSuccessfully updated contact: \n" + first_name + ' '+ last_name + ' ' + phone_number)
-    # elif self.horizontal_selection == 'Delete contact':
-    #   self.contact_book.delete_contact(first_name, last_name, phone_number)
-    #   self.logTextBox.append("\nSuccessfully deleted contact: \n" + first_name + ' '+ last_name + ' ' + phone_number)
-    # else:
-    #   listed_contacts = self.contact_book.list_contacts()
-    #   self.logTextBox.append("Contacts:")
-    #   for contact in listed_contacts:
-    #     self.logTextBox.append(contact[0])
-    #     self.logTextBox.append(contact[1])
-    #     self.logTextBox.append(contact[2])
-    #     self.logTextBox.append("\n")
-    #     print(contact[0], contact[1], contact[2])
       
     
     self.runButton.setEnabled(True)
