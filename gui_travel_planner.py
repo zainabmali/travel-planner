@@ -102,9 +102,8 @@ class Window(QtGui.QMainWindow):
 
 
     country = self.country_box
-    country_info_x = self.travel_planner.get_country_info(country.text())
+    country_info = self.travel_planner.get_country_info(country.text())
     if self.horizontal_selection == 'All country information':
-      country_info = self.travel_planner.get_country_info(country.text())
       for key, value in country_info.items():
         self.logTextBox.append(key)
         self.logTextBox.append(str(value))
@@ -113,26 +112,39 @@ class Window(QtGui.QMainWindow):
       country_info = self.travel_planner.get_country_info(country.text())
       capital = self.travel_planner.get_specific_info('capital')
       self.logTextBox.append(capital)
+      self.logTextBox.append('\n')
     if self.horizontal_selection == 'region':
-      country_info = self.travel_planner.get_country_info(country.text())
       region = self.travel_planner.get_specific_info('region')
       self.logTextBox.append(region)
-    # if self.horizontal_selection == 'currencies':
-    #   country_info = self.travel_planner.get_country_info(country.text())
-    #   currencies = self.travel_planner.get_specific_info('currencies')
-    #   for name, currency in currencies:
-    #     self.logTextBox.append(currency)
-    # if self.horizontal_selection == 'languages':
-    #   country_info = self.travel_planner.get_country_info(country.text())
-    #   languages = self.travel_planner.get_specific_info('languages')
-    #   self.logTextBox.append(languages)
+      self.logTextBox.append('\n')
+    if self.horizontal_selection == 'currencies':
+      currencies = self.travel_planner.get_specific_info('currencies')
+      for currency_dict in currencies:
+        for name, currency in currency_dict.items():
+          self.logTextBox.append(name)
+          self.logTextBox.append(currency)
+          self.logTextBox.append('\n')
+    if self.horizontal_selection == 'languages':
+      languages = self.travel_planner.get_specific_info('languages')
+      for languages_dict in languages:
+        for name, language in languages_dict.items():
+          self.logTextBox.append(name)
+          self.logTextBox.append(language)
+          self.logTextBox.append('\n')
     if self.horizontal_selection == 'population':
-      country_info = self.travel_planner.get_country_info(country.text())
       pop = self.travel_planner.get_specific_info('population')
       self.logTextBox.append(str(pop))
-
-
-      
+      self.logTextBox.append('\n')
+    if self.horizontal_selection == 'borders':
+      borders = self.travel_planner.get_specific_info('borders')
+      for border in borders:
+        self.logTextBox.append(border)
+        self.logTextBox.append('\n')
+    if self.horizontal_selection == 'timezones':
+      timezones = self.travel_planner.get_specific_info('timezones')
+      for timezone in timezones:
+        self.logTextBox.append(timezone)
+        self.logTextBox.append('\n')    
     
     self.runButton.setEnabled(True)
     
