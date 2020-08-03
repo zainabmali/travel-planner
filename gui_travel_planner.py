@@ -97,18 +97,41 @@ class Window(QtGui.QMainWindow):
     return
 
   def runScript(self):
-    self.logTextBox.append("Processing\n")
+    # self.logTextBox.append("Processing\n")
     self.runButton.setEnabled(False)
 
 
     country = self.country_box
-
+    country_info_x = self.travel_planner.get_country_info(country.text())
     if self.horizontal_selection == 'All country information':
       country_info = self.travel_planner.get_country_info(country.text())
       for key, value in country_info.items():
         self.logTextBox.append(key)
         self.logTextBox.append(str(value))
         self.logTextBox.append('\n')
+    if self.horizontal_selection == 'capital':
+      country_info = self.travel_planner.get_country_info(country.text())
+      capital = self.travel_planner.get_specific_info('capital')
+      self.logTextBox.append(capital)
+    if self.horizontal_selection == 'region':
+      country_info = self.travel_planner.get_country_info(country.text())
+      region = self.travel_planner.get_specific_info('region')
+      self.logTextBox.append(region)
+    # if self.horizontal_selection == 'currencies':
+    #   country_info = self.travel_planner.get_country_info(country.text())
+    #   currencies = self.travel_planner.get_specific_info('currencies')
+    #   for name, currency in currencies:
+    #     self.logTextBox.append(currency)
+    # if self.horizontal_selection == 'languages':
+    #   country_info = self.travel_planner.get_country_info(country.text())
+    #   languages = self.travel_planner.get_specific_info('languages')
+    #   self.logTextBox.append(languages)
+    if self.horizontal_selection == 'population':
+      country_info = self.travel_planner.get_country_info(country.text())
+      pop = self.travel_planner.get_specific_info('population')
+      self.logTextBox.append(str(pop))
+
+
       
     
     self.runButton.setEnabled(True)

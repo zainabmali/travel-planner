@@ -11,6 +11,7 @@ class TravelPlanner():
 		return self.country
 
 	def get_specific_info(self, param):
+		print(self.country[param])
 		return self.country[param]
 
 def main():
